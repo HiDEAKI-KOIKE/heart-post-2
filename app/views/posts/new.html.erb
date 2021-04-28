@@ -1,0 +1,36 @@
+<div class="text-left">
+    <h3 class="mt-5 mb-5">今どんな気持ちか投稿しよう。</h3>
+</div>
+
+<%= form_with(model: @post, local: true) do |f| %>
+<div class="container">
+        <div class="row justify-content-center ml-5 mb-5 ">
+        <div class="col-md-2 form-check form-check-inline">
+            <%= f.radio_button :emotion, :happy %>
+          <%= f.label :emotion, "嬉しい", {value: :happy} %>
+        </div>
+        <div class="col-md-2 form-check form-check-inline">
+            <%= f.radio_button :emotion, :relax %>
+          <%= f.label :emotion, "穏やか", {value: :relax, style: "display: inline-block;"} %>
+        </div>
+        <div class="col-md-2 form-check form-check-inline">
+            <%= f.radio_button :emotion, :sad %>
+          <%= f.label :emotion, "悲しい", {value: :sad, style: "display: inline-block;"} %>
+        </div>
+        <div class="col-md-2  form-check form-check-inline">
+             <%= f.radio_button :emotion, :tired %>
+          <%= f.label :emotion, "疲れた", {value: :tired, style: "display: inline-block;"} %>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-8 form-group mt-5 mb-5">
+        <%= f.text_area :content, required: true, class: 'form-control text-center', rows: 10, placeholder: "感情を選択して気ままに投稿しよう" %>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-4 align-self-center">
+        <%= f.submit '投稿', class: 'btn btn-primary btn-block btn-lg' %>
+    </div>
+</div>
+<% end %>
