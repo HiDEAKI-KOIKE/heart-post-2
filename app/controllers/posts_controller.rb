@@ -37,15 +37,18 @@ class PostsController < ApplicationController
   end
 
   def relax
-    @relax = Post.where(emotion: 'relax')
+    posts = Post.where(emotion: "relax")
+    @relax = posts.order(id: :desc).page(params[:page])
   end
 
   def sad
-    @sad = Post.where(emotion: 'sad')
+    posts = Post.where(emotion: "sad")
+    @sad = posts.order(id: :desc).page(params[:page])
   end
 
   def tired
-    @tired = Post.where(emotion: 'tired')
+    posts = Post.where(emotion: "tired")
+    @tired = posts.order(id: :desc).page(params[:page])
   end
   
   private
